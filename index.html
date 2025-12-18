@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Flashcards Game</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-language"></i> English Vocabulary Game</h1>
+            <p class="subtitle">Learn and memorize English words with flashcards</p>
+        </header>
+
+        <main>
+            <div class="menu-screen" id="menuScreen">
+                <h2>Choose a Mode</h2>
+                <div class="deck-selection">
+                    <h3><i class="fas fa-layer-group"></i> Select Word Deck</h3>
+                    <div class="deck-options" id="deckOptions">
+                        <button class="deck-btn active" data-deck="random30">
+                            <i class="fas fa-random"></i> Random Cards
+                        </button>
+                        <button class="deck-btn" data-deck="all">
+                            <i class="fas fa-globe"></i> All Words
+                        </button>
+                        <button class="deck-btn" data-deck="unit1">
+                            <i class="fas fa-book"></i> Unit 1
+                        </button>
+                        <button class="deck-btn" data-deck="unit2">
+                            <i class="fas fa-book"></i> Unit 2
+                        </button>
+                        <button class="deck-btn" data-deck="unit3">
+                            <i class="fas fa-book"></i> Unit 3
+                        </button>
+                        <button class="deck-btn" data-deck="unit4">
+                            <i class="fas fa-book"></i> Unit 4
+                        </button>
+                        <button class="deck-btn" data-deck="unit5">
+                            <i class="fas fa-book"></i> Unit 5
+                        </button>
+                        <button class="deck-btn" data-deck="unit6">
+                            <i class="fas fa-book"></i> Unit 6
+                        </button>
+                        <button class="deck-btn" data-deck="unit7">
+                            <i class="fas fa-book"></i> Unit 7
+                        </button>
+                        <button class="deck-btn" data-deck="unit8">
+                            <i class="fas fa-book"></i> Unit 8
+                        </button>
+                        <button class="deck-btn" data-deck="unit9">
+                            <i class="fas fa-book"></i> Unit 9
+                        </button>
+                        <button class="deck-btn" data-deck="unit10">
+                            <i class="fas fa-book"></i> Unit 10
+                        </button>
+                    </div>
+                </div>
+                <button id="practiceBtn" class="btn btn-practice">
+                    <i class="fas fa-book-open"></i> Practice Mode (No Timer)
+                </button>
+                <button id="level1Btn" class="btn btn-level">
+                    <i class="fas fa-play"></i> Level 1: 30 seconds per card
+                </button>
+                <button id="level2Btn" class="btn btn-level">
+                    <i class="fas fa-bolt"></i> Level 2: 15 seconds per card
+                </button>
+                <button id="level3Btn" class="btn btn-level">
+                    <i class="fas fa-fire"></i> Level 3: 5 seconds per card
+                </button>
+                <div class="instructions">
+                    <h3><i class="fas fa-info-circle"></i> How to Play</h3>
+                    <ul>
+                        <li>In Practice Mode: Click options to see correct answers.</li>
+                        <li>In Levels: Choose the correct translation before time runs out.</li>
+                        <li>Correct answer: +10 points, wrong: 0 points.</li>
+                        <li>At the end, see your accuracy percentage.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="game-screen hidden" id="gameScreen">
+                <div class="game-header">
+                    <div class="stats">
+                        <span id="scoreDisplay">Score: 0</span>
+                        <span id="timerDisplay">Time: --</span>
+                        <span id="progressDisplay">Card: 0/0</span>
+                    </div>
+                    <button id="quitBtn" class="btn-quit"><i class="fas fa-sign-out-alt"></i> Quit</button>
+                </div>
+
+                <div class="flashcard">
+                    <div class="card-header">
+                        <button id="speakBtn" class="btn-speak">
+                            <i class="fas fa-volume-up"></i> Speak Word
+                        </button>
+                        <h3 id="englishWord">Word</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="part-of-speech" id="partOfSpeech">n.</p>
+                        <p class="pronunciation" id="pronunciation">/ˈɡɪvən neɪm/</p>
+                    </div>
+
+                    <div class="options" id="optionsContainer">
+                    </div>
+
+                    <div class="feedback hidden" id="feedback">
+                        <p id="correctAnswerText"></p>
+                        <button id="nextBtn" class="btn-next">Next Card <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-screen hidden" id="resultScreen">
+                <h2>Game Over!</h2>
+                <div class="score-summary">
+                    <p><i class="fas fa-trophy"></i> Your Score: <span id="finalScore">0</span></p>
+                    <p><i class="fas fa-chart-bar"></i> Accuracy: <span id="accuracy">0%</span></p>
+                    <p><i class="fas fa-clock"></i> Total Time: <span id="totalTime">0</span>s</p>
+                </div>
+                <button id="restartBtn" class="btn-restart"><i class="fas fa-redo"></i> Play Again</button>
+                <button id="backToMenuBtn" class="btn-menu"><i class="fas fa-home"></i> Back to Menu</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Speakout Advanced Words</p>
+        </footer>
+    </div>
+
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
